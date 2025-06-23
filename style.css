@@ -1,0 +1,12 @@
+body {
+  background-color: aqua;
+}
+h1 {
+  color: red;
+}
+h1:hover {
+  transition: 1s;
+  transform: scale(1.2);
+  text-align: center;
+  display: block;
+}
