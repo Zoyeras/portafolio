@@ -1,0 +1,15 @@
+body {
+  background-color: #FFF67E;
+}
+.Encabezado{
+    background-color: #416D19;
+    color: #416D19;
+    background-size: 10px;
+    text-align: center;
+}
+
+.Encabezado:hover{
+    color: #BFEA7C;
+    transform: scale(1.5);
+    transition: 1s;
+}
