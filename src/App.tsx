@@ -53,9 +53,9 @@ function App() {
         </div>
       </div>
       {/* Sección de proyectos */}
-      <section className="w-1/4 bg-purple-900 text-white p-4 items-center gap-10 left-1 absolute top-80">
+      <section className="flex bg-purple-900 text-white p-4 items-center gap-10 left-1 absolute top-80">
         {/* Gestor de Tareas */}
-        <div>
+        <div className="w-1/4">
           {/* Titulo */}
           <h2 className="text-green-500 !text-xl !font-bold">
             Gestor de Tareas
@@ -72,6 +72,48 @@ function App() {
             Manejo de roles, usuario y administrador. Tablero de tareas y
             usuarios en inicio de los administradores. Manejo de tokens y
             contraseñas con JWT.
+          </p>
+        </div>
+        {/* Otro proyecto */}
+        <div className="w-1/4">
+          {/* Titulo */}
+          <h2 className="text-green-500 !text-xl !font-bold">Titulo</h2>
+          {/* Imagen */}
+          <img src="#" alt="..." />
+          {/* Descripcion */}
+          <p className="text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum
+            eius cumque molestias quidem incidunt nemo, quam optio saepe
+            tempore! Aspernatur animi obcaecati iusto qui ad praesentium iste
+            officiis dolore eligendi.
+          </p>
+        </div>
+        {/* Otro proyecto */}
+        <div className="w-1/4">
+          {/* Titulo */}
+          <h2 className="text-green-500 !text-xl !font-bold">Titulo</h2>
+          {/* Imagen */}
+          <img src="#" alt="..." />
+          {/* Descripcion */}
+          <p className="text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum
+            eius cumque molestias quidem incidunt nemo, quam optio saepe
+            tempore! Aspernatur animi obcaecati iusto qui ad praesentium iste
+            officiis dolore eligendi.
+          </p>
+        </div>
+        {/* Otro proyecto */}
+        <div className="w-1/4">
+          {/* Titulo */}
+          <h2 className="text-green-500 !text-xl !font-bold">Titulo</h2>
+          {/* Imagen */}
+          <img src="#" alt="..." />
+          {/* Descripcion */}
+          <p className="text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum
+            eius cumque molestias quidem incidunt nemo, quam optio saepe
+            tempore! Aspernatur animi obcaecati iusto qui ad praesentium iste
+            officiis dolore eligendi.
           </p>
         </div>
       </section>
