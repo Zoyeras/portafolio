@@ -12,7 +12,7 @@ function App() {
       </div>
 
       <div className="absolute top-20 left-1 text-green-500 text-5xl font-bold">
-        <h2>Portafolio de Samuel Loaiza.................</h2>
+        <h2>Portafolio de Samuel Loaiza</h2>
       </div>
       {/* Navegación */}
       <nav className="absolute right-5 top-32">
