@@ -62,7 +62,7 @@ function App() {
           </h2>
           {/* Imagen */}
           <img
-            src="../public/imagenes/Capturas Proyectos/MisTareas Gestor-Tareas.png"
+            src="/imagenes/Capturas Proyectos/MisTareas Gestor-Tareas.png"
             alt="MisTareas Gestor-Tareas"
           />
           {/* Descripcion */}
@@ -125,7 +125,7 @@ function App() {
       >
         <img
           className="w-14 h-auto m-2"
-          src="../public/imagenes/iconoWhatsapp.png"
+          src="/imagenes/iconoWhatsapp.png"
           alt="Icono Whatsapp"
         />
       </a>
