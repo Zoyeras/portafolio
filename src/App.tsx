@@ -14,6 +14,7 @@ function App() {
       <div className="absolute top-20 left-1 text-green-500 text-5xl font-bold">
         <h2>Portafolio de Samuel Loaiza</h2>
       </div>
+      <img src="imagenes/fotoMia_1.jpg" alt="Foto Samuel" />
       {/* Navegación */}
       <nav className="absolute right-5 top-32">
         <ul className="flex p-0 m-0 gap-4">
