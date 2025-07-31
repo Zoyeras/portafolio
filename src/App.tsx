@@ -1,5 +1,3 @@
-import "./App.css";
-
 function App() {
   return (
     <>
@@ -35,7 +33,7 @@ function App() {
         <div className="mx-auto flex relative w-150 h-150 overflow-hidden rounded-full">
           <img
             className="w-full h-full object-center"
-            src="/imagenes/fotoMia-800.webp"
+            src="imagenes/fotoMia-800.webp"
             alt="Foto Samuel"
           />
         </div>
@@ -136,45 +134,74 @@ function App() {
       {/* Sección de contacto */}
       <div className="relative flex gap-30 bg-purple-900 items-center top-20">
         {/*<h2 className="text-green-500 !text-10xl text-center">Contacto</h2>*/}
-        <p className="text-justify w-1/4">
+        <p className="text-justify w-1/4 left-5">
           Si tienes alguna pregunta o quieres colaborar en un proyecto, no dudes
           en contactarme. Puedes encontrarme en redes sociales o enviarme un
           correo electr&oacute;nico.
         </p>
-        <a href="mailto:loaizaocampos@gmail.com">
+        {/* Gmail */}
+        <div className="relative group">
+          <a href="mailto:loaizaocampos@gmail.com" target="_blank">
+            <img
+              className="w-20 h-20"
+              src="/imagenes/iconoGmail.png"
+              alt="Icono de Gmail"
+            />
+            <div className="absolute inset-0 bg-purple-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-black text-xl font-bold">
+                loaizaocampos@gmail.com
+              </p>
+            </div>
+          </a>
+        </div>
+        {/* Linkedin */}
+        <a
+          href="https://www.linkedin.com/in/samueldavidloaiza/"
+          target="_blank"
+        >
           <img
             className="w-20 h-20"
-            src="/imagenes/iconoGmail.png"
-            alt="Icono de Gmail"
-          />
-        </a>
-        <a href="https://www.linkedin.com/in/samueldavidloaiza/">
-          <img
-            className="w-20 h-20"
-            src="/imagenes/iconoLinkedin.png"
+            src="/imagenes/iconoLinkedin-400.webp"
             alt="Icono de linkedin"
           />
         </a>
-        <img
-          className="w-20 h-20"
-          src="imagenes/iconoTelefono.png"
-          alt="Icono de Telefono"
-        />
+        {/* Telefono */}
+        <div className="relative group">
+          <img
+            className="w-20 h-20"
+            src="imagenes/iconoTelefono-400.webp"
+            alt="Icono de Telefono"
+          />
+          <div className="absolute inset-0 bg-purple-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p className="text-black text-xl font-bold">3112617910</p>
+          </div>
+        </div>
+        {/* hv */}
+        <a href="assets/Hoja de vida Samuel Loaiza.pdf" target="_blank">
+          {" "}
+          <img
+            className="w-30 h-30"
+            src="imagenes/iconoHV-400.webp"
+            alt="Hoja de vida"
+          />
+        </a>
       </div>
       {/* Botón de Whatsapp */}
-      <a
-        className="fixed shadow-lg bottom-5 left-5 w-auto h-auto flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300"
-        href="https://api.whatsapp.com/send?phone=573112617910&text=Hola%20Samuel,%20me%20gustaría%20contactarte%20para%20hablar%20sobre%20tu%20portafolio."
-        target="_blank"
-      >
-        <img
-          className="w-14 h-auto m-2"
-          src="/imagenes/iconoWhatsapp.webp"
-          alt="Icono Whatsapp"
-        />
-      </a>
+      <div className="opacity-40 hover:opacity-100">
+        {" "}
+        <a
+          className="fixed shadow-lg bottom-50 left-5 w-auto h-auto flex items-center justify-center bg-green-500 rounded-full hover:bg-green-600 transition-colors duration-300"
+          href="https://api.whatsapp.com/send?phone=573112617910&text=Hola%20Samuel,%20me%20gustaría%20contactarte%20para%20hablar%20sobre%20tu%20portafolio."
+          target="_blank"
+        >
+          <img
+            className="w-14 h-auto m-2"
+            src="/imagenes/iconoWhatsapp-400.webp"
+            alt="Icono Whatsapp"
+          />
+        </a>
+      </div>
     </>
   );
 }
-
 export default App;
