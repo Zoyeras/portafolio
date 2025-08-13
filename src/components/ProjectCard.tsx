@@ -3,17 +3,31 @@ const ProjectCard = ({
   description,
   image,
   technologies,
+  onClick,
 }: {
   title: string;
   description: string;
   image: string;
   technologies: string[];
+  onClick: () => void;
 }) => {
   return (
-    <div className="bg-gradient-to-br from-purple-900 to-black rounded-xl overflow-hidden border border-purple-700 shadow-xl transform transition-transform hover:-translate-y-2">
+    <div
+      className="bg-gradient-to-br from-purple-900 to-black rounded-xl overflow-hidden border border-purple-700 shadow-xl transform transition-transform hover:-translate-y-2 cursor-pointer"
+      onClick={onClick}
+    >
       <div className="relative h-48 overflow-hidden">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+          <span className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium">
+            Ver detalles
+          </span>
+        </div>
       </div>
 
       <div className="p-6">
