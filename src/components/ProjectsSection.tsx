@@ -9,7 +9,7 @@ const ProjectsSection = () => {
       title: "Gestor de Tareas",
       description:
         "Aplicación web para gestión de tareas con sistema de autenticación, roles de usuario y administrador, y tablero de tareas interactivo.",
-      image: "/imagenes/Capturas Proyectos/MisTareas Gestor-Tareas.png",
+      image: "/imagenes/Capturas Proyectos/GestorTareas CRUD.png",
       technologies: ["React", "Node.js", "Express", "MongoDB", "JWT"],
       details: `
         <p>Sistema completo de gestión de tareas con:</p>
