@@ -22,7 +22,7 @@ const ContactSection = () => {
       icon: "imagenes/iconoHV-400.webp",
       label: "CV",
       value: "Descargar",
-      link: "assets/Hoja de vida Samuel Loaiza.pdf",
+      link: "/cv_SamuelLoaiza.pdf",
     },
   ];
 
