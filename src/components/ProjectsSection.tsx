@@ -159,7 +159,13 @@ const ProjectsSection = ({ language }: { language: Language }) => {
           {text.subtitle}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-7 ${
+            projects.length === 2
+              ? "lg:grid-cols-2 lg:max-w-5xl lg:mx-auto lg:justify-items-center"
+              : "lg:grid-cols-3"
+          }`}
+        >
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
