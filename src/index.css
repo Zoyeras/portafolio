@@ -1,1 +1,86 @@
 @import "tailwindcss";
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: radial-gradient(circle at top, rgb(88 28 135 / 0.25), transparent 42%),
+		radial-gradient(circle at 80% 20%, rgb(34 197 94 / 0.12), transparent 30%);
+}
+
+::selection {
+	background: rgb(74 222 128 / 0.3);
+	color: rgb(255 255 255);
+}
+
+@keyframes blob {
+	0% {
+		transform: translate(0, 0) scale(1);
+	}
+	33% {
+		transform: translate(20px, -16px) scale(1.06);
+	}
+	66% {
+		transform: translate(-12px, 12px) scale(0.96);
+	}
+	100% {
+		transform: translate(0, 0) scale(1);
+	}
+}
+
+.animate-blob {
+	animation: blob 11s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+	animation-delay: 2s;
+}
+
+.glass-panel {
+	background: linear-gradient(135deg, rgb(17 24 39 / 0.5), rgb(88 28 135 / 0.22));
+	backdrop-filter: blur(8px);
+	border: 1px solid rgb(126 34 206 / 0.45);
+	box-shadow: 0 12px 30px rgb(0 0 0 / 0.3);
+}
+
+.section-title-glow {
+	text-shadow: 0 0 18px rgb(74 222 128 / 0.25);
+}
+
+.skill-track {
+	height: 0.55rem;
+	border-radius: 9999px;
+	background: rgb(88 28 135 / 0.65);
+	overflow: hidden;
+	border: 1px solid rgb(126 34 206 / 0.4);
+}
+
+.skill-fill {
+	height: 100%;
+	border-radius: 9999px;
+	background: linear-gradient(90deg, rgb(34 197 94), rgb(74 222 128));
+	box-shadow: 0 0 12px rgb(34 197 94 / 0.45);
+}
+
+.line-clamp-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
