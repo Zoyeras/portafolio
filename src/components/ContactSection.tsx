@@ -39,8 +39,8 @@ const ContactSection = ({ language }: { language: Language }) => {
       label: { es: "CV", en: "Resume" },
       value: { es: "Descargar", en: "Download" },
       link: {
-        es: "/CV_Samuel_Loaiza_Backend_NET_ES.pdf",
-        en: "/CV_Samuel_Loaiza_Backend_NET_EN.pdf",
+        es: "https://cv-kappa-rust.vercel.app/",
+        en: "https://cv-kappa-rust.vercel.app/en",
       },
     },
   ];
