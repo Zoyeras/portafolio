@@ -9,8 +9,8 @@ const ProjectsSection = () => {
       title: "Gestor de Tareas",
       description:
         "Aplicación web para gestión de tareas con sistema de autenticación, roles de usuario y administrador, y tablero de tareas interactivo.",
-      image: "/imagenes/Capturas Proyectos/GestorTareas CRUD.png",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+      image: "/imagenes/Capturas Proyectos/imgGestorTareas.png",
+      technologies: ["React", "Python", "Flask", "MySQL", "JWT"],
       details: `
         <p>Sistema completo de gestión de tareas con:</p>
         <ul class="list-disc pl-5 mt-2 space-y-1">
@@ -21,27 +21,30 @@ const ProjectsSection = () => {
           <li>Reportes y estadísticas</li>
         </ul>
       `,
-      demoUrl: "#",
-      repoUrl: "#",
+      demoUrl: "https://gestortareas-frontend.vercel.app/login",
+      repoUrl: "https://github.com/Zoyeras/backend-GestorTareas",
     },
     {
-      title: "E-commerce Platform",
+      title: "Programa de automatizacion",
       description:
-        "Plataforma de comercio electrónico con carrito de compras, pasarela de pago y panel de administración.",
-      image: "/imagenes/placeholder-project.jpg",
-      technologies: ["Next.js", "Stripe", "Firebase", "Redux"],
+        "Programa de automatizacion para creacion de tickets con interfaz de usuario, toma de datos con formulario y envios de whatsapp.",
+      image: "/imagenes/Capturas Proyectos/imgIAutomation.png",
+      technologies: ["C#", "React", "TypeScript", "PostgreSQL"],
       details: `
-        <p>Plataforma de e-commerce con:</p>
+        <p>Programa de automatización para creación de tickets con:</p>
         <ul class="list-disc pl-5 mt-2 space-y-1">
-          <li>Carrito de compras persistente</li>
-          <li>Integración con Stripe para pagos</li>
-          <li>Panel de administración completo</li>
-          <li>Sistema de reseñas y calificaciones</li>
-          <li>Búsqueda y filtrado avanzado</li>
+          <li>Interfaz de usuario intuitiva</li>
+          <li>Toma de datos mediante formulario</li>
+          <li>Captura de audio para transcripción</li>
+          <li>Voz de IA para lectura de datos</li>
+          <li>Envíos automáticos por WhatsApp</li>
+          <li>Integración con base de datos PostgreSQL</li>
+          <li>Generación de reportes</li>
+          <li>Base de datos para almacenamiento de datos</li>
         </ul>
       `,
-      demoUrl: "#",
-      repoUrl: "#",
+      demoUrl: "https://ia-automation-frontend.vercel.app/",
+      repoUrl: "https://github.com/Zoyeras/IAutomation_backend",
     },
     {
       title: "Sistema de Reservas",
