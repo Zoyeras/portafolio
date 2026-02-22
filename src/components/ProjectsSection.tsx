@@ -109,6 +109,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       demoUrl: "https://ia-automation-frontend.vercel.app/",
       repoUrl: "https://github.com/Zoyeras/IAutomation_backend",
     },
+    /*
     {
       title: {
         es: "Sistema de Reservas",
@@ -144,14 +145,15 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       },
       demoUrl: "#",
       repoUrl: "#",
-    },
+    },*/
   ];
 
   return (
     <section id="proyectos" className="scroll-mt-28 py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight">
-          {text.title} <span className="text-green-400">{text.titleHighlight}</span>
+          {text.title}{" "}
+          <span className="text-green-400">{text.titleHighlight}</span>
         </h2>
         <p className="text-center text-purple-200/90 max-w-2xl mx-auto mb-14 leading-relaxed">
           {text.subtitle}
