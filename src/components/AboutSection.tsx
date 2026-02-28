@@ -84,7 +84,7 @@ const AboutSection = ({ language }: { language: Language }) => {
           <div className="lg:w-2/5 flex justify-center">
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-purple-600 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/90 shadow-xl shadow-black/30 transform transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-64 h-64 md:w-100 md:h-100 rounded-full overflow-hidden border-4 border-white/90 shadow-xl shadow-black/30 transform transition-transform duration-300 group-hover:scale-105">
                 <img
                   className="w-full h-full object-cover"
                   src="/imagenes/fotoMia-800.webp"
