@@ -151,8 +151,8 @@ const ProjectsSection = ({ language }: { language: Language }) => {
         `,
       },
       demoUrl: "https://ecommerce-ligero.vercel.app",
-      repoUrl: "https://github.com/Zoyeras/demo-store",
-      guideUrl: "https://github.com/Zoyeras/demo-store/blob/main/GESTION.md",
+      repoUrl: "https://github.com/Zoyeras/Ecommerce-Ligero",
+      guideUrl: "https://github.com/Zoyeras/Ecommerce-Ligero/blob/main/GESTION.md",
     },
   ];
 
