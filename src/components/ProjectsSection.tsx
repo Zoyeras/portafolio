@@ -120,7 +120,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
         es: "Catálogo e-commerce conversacional administrable desde Google Drive. Los productos se actualizan en tiempo real, el carrito y checkout se realizan por WhatsApp.",
         en: "Conversational e-commerce catalog managed via Google Drive. Products update in real time, cart and checkout via WhatsApp.",
       },
-      image: "/imagenes/Capturas Proyectos/imgDemoStore.png",
+      image: "/imagenes/Capturas Proyectos/imgEcommerceLigero.png",
       technologies: ["React", "TypeScript", "Vite", "Google Drive API", "Vercel"],
       details: {
         es: `
