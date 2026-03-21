@@ -113,8 +113,8 @@ const ProjectsSection = ({ language }: { language: Language }) => {
     },
     {
       title: {
-        es: "Demo Store",
-        en: "Demo Store",
+        es: "Ecommerce ligero",
+        en: "Light Ecommerce",
       },
       description: {
         es: "Catálogo e-commerce conversacional administrable desde Google Drive. Los productos se actualizan en tiempo real, el carrito y checkout se realizan por WhatsApp.",
