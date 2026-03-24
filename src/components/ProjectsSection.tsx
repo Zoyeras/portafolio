@@ -10,7 +10,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       title: "Mis",
       titleHighlight: "Proyectos",
       subtitle:
-          "Algunos de mis trabajos recientes donde he aplicado mis habilidades para resolver problemas reales",
+        "Algunos de mis trabajos recientes donde he aplicado mis habilidades para resolver problemas reales",
       close: "Cerrar",
       viewDemo: "Ver Demo",
       viewCode: "Ver Código",
@@ -23,7 +23,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       title: "My",
       titleHighlight: "Projects",
       subtitle:
-          "Some of my recent work where I applied my skills to solve real-world problems",
+        "Some of my recent work where I applied my skills to solve real-world problems",
       close: "Close",
       viewDemo: "View Demo",
       viewCode: "View Code",
@@ -129,7 +129,13 @@ const ProjectsSection = ({ language }: { language: Language }) => {
         en: "Conversational e-commerce catalog managed via Google Drive. Products update in real time, cart and checkout via WhatsApp.",
       },
       image: "/imagenes/Capturas Proyectos/imgEcommerceLigero.png",
-      technologies: ["React", "TypeScript", "Vite", "Google Drive API", "Vercel"],
+      technologies: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Google Drive API",
+        "Vercel",
+      ],
       details: {
         es: `
           <p>Demo de tienda en línea con:</p>
@@ -161,7 +167,8 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       demoUrl: "https://ecommerce-ligero.vercel.app",
       frontendRepoUrl: "https://github.com/Zoyeras/Ecommerce-Ligero",
       backendRepoUrl: undefined, // No tiene backend separado
-      guideUrl: "https://github.com/Zoyeras/Ecommerce-Ligero/blob/main/GESTION.md",
+      guideUrl:
+        "https://github.com/Zoyeras/Ecommerce-Ligero/blob/main/GESTION.md",
     },
     {
       title: {
@@ -173,7 +180,14 @@ const ProjectsSection = ({ language }: { language: Language }) => {
         en: "Full-stack task management app with JWT authentication, user/admin roles, built with .NET 10 (backend) and React + TypeScript (frontend).",
       },
       image: "/imagenes/Capturas Proyectos/imgTaskManager.png",
-      technologies: ["React", "TypeScript", ".NET 10", "Entity Framework", "PostgreSQL", "JWT"],
+      technologies: [
+        "React",
+        "TypeScript",
+        ".NET 10",
+        "Entity Framework",
+        "PostgreSQL",
+        "JWT",
+      ],
       details: {
         es: `
           <p>Sistema completo de gestión de tareas con:</p>
@@ -204,7 +218,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
           </ul>
         `,
       },
-      demoUrl: "#", // Cambia por la URL del demo cuando lo despliegues
+      demoUrl: "https://task-manager-frontend-wheat-three.vercel.app/login",
       frontendRepoUrl: "https://github.com/Zoyeras/TaskManager_frontend",
       backendRepoUrl: "https://github.com/Zoyeras/TaskManager_backend",
       guideUrl: undefined,
@@ -212,211 +226,212 @@ const ProjectsSection = ({ language }: { language: Language }) => {
   ];
 
   return (
-      <section id="proyectos" className="scroll-mt-28 py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight">
-            {text.title}{" "}
-            <span className="text-green-400">{text.titleHighlight}</span>
-          </h2>
-          <p className="text-center text-purple-200/90 max-w-2xl mx-auto mb-14 leading-relaxed">
-            {text.subtitle}
-          </p>
+    <section id="proyectos" className="scroll-mt-28 py-24 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight">
+          {text.title}{" "}
+          <span className="text-green-400">{text.titleHighlight}</span>
+        </h2>
+        <p className="text-center text-purple-200/90 max-w-2xl mx-auto mb-14 leading-relaxed">
+          {text.subtitle}
+        </p>
 
-          <div
-              className={`grid grid-cols-1 md:grid-cols-2 gap-7 ${
-                  projects.length === 2
-                      ? "lg:grid-cols-2 lg:max-w-5xl lg:mx-auto lg:justify-items-center"
-                      : "lg:grid-cols-3"
-              }`}
-          >
-            {projects.map((project, index) => (
-                <ProjectCard
-                    key={index}
-                    title={project.title[language]}
-                    description={project.description[language]}
-                    image={project.image}
-                    technologies={project.technologies}
-                    detailsLabel={text.viewDetails}
-                    onClick={() => setSelectedProject(index)}
-                />
-            ))}
-          </div>
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-7 ${
+            projects.length === 2
+              ? "lg:grid-cols-2 lg:max-w-5xl lg:mx-auto lg:justify-items-center"
+              : "lg:grid-cols-3"
+          }`}
+        >
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title[language]}
+              description={project.description[language]}
+              image={project.image}
+              technologies={project.technologies}
+              detailsLabel={text.viewDetails}
+              onClick={() => setSelectedProject(index)}
+            />
+          ))}
         </div>
+      </div>
 
-        {/* Project Modal */}
-        {selectedProject !== null && (
-            <div
-                className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-                onClick={() => setSelectedProject(null)}
-            >
-              <div
-                  className="bg-gradient-to-br from-purple-900 to-black rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-purple-600/80 shadow-2xl shadow-black/50"
-                  onClick={(e) => e.stopPropagation()}
-              >
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl md:text-3xl font-bold text-green-400 tracking-tight">
-                      {projects[selectedProject].title[language]}
-                    </h3>
-                    <button
-                        onClick={() => setSelectedProject(null)}
-                        className="text-gray-400 hover:text-white bg-purple-800/80 border border-purple-700 rounded-full p-2 transition-colors"
-                        aria-label={text.close}
-                    >
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                      >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div className="relative h-64 md:h-80 mb-6 rounded-xl overflow-hidden border border-purple-700/70">
-                    <img
-                        src={projects[selectedProject].image}
-                        alt={projects[selectedProject].title[language]}
-                        className="w-full h-full object-cover"
+      {/* Project Modal */}
+      {selectedProject !== null && (
+        <div
+          className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="bg-gradient-to-br from-purple-900 to-black rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-purple-600/80 shadow-2xl shadow-black/50"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-green-400 tracking-tight">
+                  {projects[selectedProject].title[language]}
+                </h3>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="text-gray-400 hover:text-white bg-purple-800/80 border border-purple-700 rounded-full p-2 transition-colors"
+                  aria-label={text.close}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-                  </div>
+                  </svg>
+                </button>
+              </div>
 
-                  <div
-                      className="text-gray-300 mb-6 leading-relaxed"
-                      dangerouslySetInnerHTML={{
-                        __html: projects[selectedProject].details[language],
-                      }}
-                  />
+              <div className="relative h-64 md:h-80 mb-6 rounded-xl overflow-hidden border border-purple-700/70">
+                <img
+                  src={projects[selectedProject].image}
+                  alt={projects[selectedProject].title[language]}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+              </div>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {projects[selectedProject].technologies.map((tech, index) => (
-                        <span
-                            key={index}
-                            className="px-3 py-1 bg-purple-800 text-green-300 text-sm rounded-full border border-purple-700/70"
-                        >
+              <div
+                className="text-gray-300 mb-6 leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: projects[selectedProject].details[language],
+                }}
+              />
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {projects[selectedProject].technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-purple-800 text-green-300 text-sm rounded-full border border-purple-700/70"
+                  >
                     {tech}
                   </span>
-                    ))}
-                  </div>
+                ))}
+              </div>
 
-                  <div className="flex flex-wrap gap-4">
-                    {/* Demo Button */}
-                    {projects[selectedProject].demoUrl && projects[selectedProject].demoUrl !== "#" && (
-                        <a
-                            href={projects[selectedProject].demoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2.5 rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors flex items-center justify-center gap-2 font-semibold"
-                        >
-                          <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-5 w-5"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                          >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                            />
-                          </svg>
-                          {text.viewDemo}
-                        </a>
-                    )}
+              <div className="flex flex-wrap gap-4">
+                {/* Demo Button */}
+                {projects[selectedProject].demoUrl &&
+                  projects[selectedProject].demoUrl !== "#" && (
+                    <a
+                      href={projects[selectedProject].demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2.5 rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors flex items-center justify-center gap-2 font-semibold"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                      {text.viewDemo}
+                    </a>
+                  )}
 
-                    {/* Frontend Code Button */}
-                    {projects[selectedProject].frontendRepoUrl && (
-                        <a
-                            href={projects[selectedProject].frontendRepoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
-                        >
-                          <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-5 w-5"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                          >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                            />
-                          </svg>
-                          {text.viewFrontend}
-                        </a>
-                    )}
+                {/* Frontend Code Button */}
+                {projects[selectedProject].frontendRepoUrl && (
+                  <a
+                    href={projects[selectedProject].frontendRepoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      />
+                    </svg>
+                    {text.viewFrontend}
+                  </a>
+                )}
 
-                    {/* Backend Code Button */}
-                    {projects[selectedProject].backendRepoUrl && (
-                        <a
-                            href={projects[selectedProject].backendRepoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
-                        >
-                          <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-5 w-5"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                          >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                            />
-                          </svg>
-                          {text.viewBackend}
-                        </a>
-                    )}
+                {/* Backend Code Button */}
+                {projects[selectedProject].backendRepoUrl && (
+                  <a
+                    href={projects[selectedProject].backendRepoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      />
+                    </svg>
+                    {text.viewBackend}
+                  </a>
+                )}
 
-                    {/* Guide Button */}
-                    {projects[selectedProject].guideUrl && (
-                        <a
-                            href={projects[selectedProject].guideUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
-                        >
-                          <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-5 w-5"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                          >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                            />
-                          </svg>
-                          {text.viewGuide}
-                        </a>
-                    )}
-                  </div>
-                </div>
+                {/* Guide Button */}
+                {projects[selectedProject].guideUrl && (
+                  <a
+                    href={projects[selectedProject].guideUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                      />
+                    </svg>
+                    {text.viewGuide}
+                  </a>
+                )}
               </div>
             </div>
-        )}
-      </section>
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 
