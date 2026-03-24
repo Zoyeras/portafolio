@@ -14,6 +14,8 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       close: "Cerrar",
       viewDemo: "Ver Demo",
       viewCode: "Ver Código",
+      viewBackend: "Ver Backend",
+      viewFrontend: "Ver Frontend",
       viewGuide: "Ver Guía",
       viewDetails: "Ver detalles",
     },
@@ -25,6 +27,8 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       close: "Close",
       viewDemo: "View Demo",
       viewCode: "View Code",
+      viewBackend: "View Backend",
+      viewFrontend: "View Frontend",
       viewGuide: "View Guide",
       viewDetails: "View details",
     },
@@ -67,7 +71,9 @@ const ProjectsSection = ({ language }: { language: Language }) => {
         `,
       },
       demoUrl: "https://gestortareas-frontend.vercel.app/login",
-      repoUrl: "https://github.com/Zoyeras/backend-GestorTareas",
+      frontendRepoUrl: "https://github.com/Zoyeras/backend-GestorTareas", // Ajusta si tienes frontend separado
+      backendRepoUrl: undefined, // Si no tienes backend separado, déjalo undefined
+      guideUrl: undefined,
     },
     {
       title: {
@@ -109,7 +115,9 @@ const ProjectsSection = ({ language }: { language: Language }) => {
         `,
       },
       demoUrl: "https://ia-automation-frontend.vercel.app/",
-      repoUrl: "https://github.com/Zoyeras/IAutomation_backend",
+      frontendRepoUrl: "https://github.com/Zoyeras/IAutomation_frontend", // Ajusta
+      backendRepoUrl: "https://github.com/Zoyeras/IAutomation_backend",
+      guideUrl: undefined,
     },
     {
       title: {
@@ -151,8 +159,55 @@ const ProjectsSection = ({ language }: { language: Language }) => {
         `,
       },
       demoUrl: "https://ecommerce-ligero.vercel.app",
-      repoUrl: "https://github.com/Zoyeras/Ecommerce-Ligero",
+      frontendRepoUrl: "https://github.com/Zoyeras/Ecommerce-Ligero",
+      backendRepoUrl: undefined, // No tiene backend separado
       guideUrl: "https://github.com/Zoyeras/Ecommerce-Ligero/blob/main/GESTION.md",
+    },
+    {
+      title: {
+        es: "TaskManager",
+        en: "TaskManager",
+      },
+      description: {
+        es: "Aplicación completa de gestión de tareas con autenticación JWT, roles de usuario y administrador, desarrollada con .NET 10 (backend) y React + TypeScript (frontend).",
+        en: "Full-stack task management app with JWT authentication, user/admin roles, built with .NET 10 (backend) and React + TypeScript (frontend).",
+      },
+      image: "/imagenes/Capturas Proyectos/imgTaskManager.png",
+      technologies: ["React", "TypeScript", ".NET 10", "Entity Framework", "PostgreSQL", "JWT"],
+      details: {
+        es: `
+          <p>Sistema completo de gestión de tareas con:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>Autenticación JWT con expiración configurable</li>
+            <li>Roles: administrador (CRUD de cualquier tarea) y usuario normal (solo sus tareas)</li>
+            <li>CRUD de tareas con campos: título, descripción, estado, prioridad, fecha límite</li>
+            <li>Campos de auditoría: CreatedAt, UpdatedAt</li>
+            <li>Manejo global de excepciones y validación de modelos</li>
+            <li>Conversor UTC para fechas en JSON</li>
+            <li>Interfaz moderna con efectos visuales (tilt, glitch, gradientes)</li>
+            <li>Rutas protegidas, interceptor de Axios para token</li>
+            <li>Base de datos PostgreSQL</li>
+          </ul>
+        `,
+        en: `
+          <p>Complete task management system with:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>JWT authentication with configurable expiration</li>
+            <li>Roles: admin (CRUD any task) and regular user (only own tasks)</li>
+            <li>Task CRUD with fields: title, description, status, priority, due date</li>
+            <li>Audit fields: CreatedAt, UpdatedAt</li>
+            <li>Global exception handling and model validation</li>
+            <li>UTC date converter for JSON</li>
+            <li>Modern UI with visual effects (tilt, glitch, gradients)</li>
+            <li>Protected routes, Axios token interceptor</li>
+            <li>PostgreSQL database</li>
+          </ul>
+        `,
+      },
+      demoUrl: "#", // Cambia por la URL del demo cuando lo despliegues
+      frontendRepoUrl: "https://github.com/Zoyeras/TaskManager_frontend",
+      backendRepoUrl: "https://github.com/Zoyeras/TaskManager_backend",
+      guideUrl: undefined,
     },
   ];
 
@@ -254,65 +309,87 @@ const ProjectsSection = ({ language }: { language: Language }) => {
 
                   <div className="flex flex-wrap gap-4">
                     {/* Demo Button */}
-                    <a
-                        href={projects[selectedProject].demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`px-4 py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold ${
-                            projects[selectedProject].demoUrl === "#"
-                                ? "bg-green-500/40 text-white/70 pointer-events-none"
-                                : "bg-green-500 text-white hover:bg-green-600"
-                        }`}
-                    >
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                      >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                      {text.viewDemo}
-                    </a>
-
-                    {/* Code Button */}
-                    <a
-                        href={projects[selectedProject].repoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`px-4 py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold ${
-                            projects[selectedProject].repoUrl === "#"
-                                ? "bg-purple-700/40 text-white/70 pointer-events-none"
-                                : "bg-purple-700 text-white hover:bg-purple-600"
-                        }`}
-                    >
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                      >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                        />
-                      </svg>
-                      {text.viewCode}
-                    </a>
-
-                    {/* Guide Button – solo si existe guideUrl */}
-                    {(projects[selectedProject] as any).guideUrl && (
+                    {projects[selectedProject].demoUrl && projects[selectedProject].demoUrl !== "#" && (
                         <a
-                            href={(projects[selectedProject] as any).guideUrl}
+                            href={projects[selectedProject].demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2.5 rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors flex items-center justify-center gap-2 font-semibold"
+                        >
+                          <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                          {text.viewDemo}
+                        </a>
+                    )}
+
+                    {/* Frontend Code Button */}
+                    {projects[selectedProject].frontendRepoUrl && (
+                        <a
+                            href={projects[selectedProject].frontendRepoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
+                        >
+                          <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                            />
+                          </svg>
+                          {text.viewFrontend}
+                        </a>
+                    )}
+
+                    {/* Backend Code Button */}
+                    {projects[selectedProject].backendRepoUrl && (
+                        <a
+                            href={projects[selectedProject].backendRepoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
+                        >
+                          <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                            />
+                          </svg>
+                          {text.viewBackend}
+                        </a>
+                    )}
+
+                    {/* Guide Button */}
+                    {projects[selectedProject].guideUrl && (
+                        <a
+                            href={projects[selectedProject].guideUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-4 py-2.5 rounded-lg bg-purple-700 text-white hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 font-semibold"
