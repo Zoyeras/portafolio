@@ -1,62 +1,127 @@
+import { useEffect, useRef } from "react";
 import type { Language } from "../types/language";
 
+function useScrollReveal() {
+  const ref = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const targets = el.querySelectorAll<HTMLElement>(
+      ".reveal, .reveal-left, .reveal-right, .reveal-scale, .heading-underline",
+    );
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        }),
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+    );
+    targets.forEach((t) => observer.observe(t));
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
+const SkillTag = ({ skill, index }: { skill: string; index: number }) => (
+  <span
+    className="skill-tag-animated px-3 py-1 rounded-md text-xs border transition-colors duration-200 hover:border-green-400/35 hover:text-green-300/90"
+    style={{
+      animationDelay: `${index * 50}ms`,
+      background: "rgb(124 58 237 / 0.08)",
+      borderColor: "rgb(124 58 237 / 0.22)",
+      color: "rgb(196 181 253 / 0.9)",
+      fontFamily: "var(--font-display)",
+    }}
+  >
+    {skill}
+  </span>
+);
+
+const StatCard = ({ value, label }: { value: string; label: string }) => (
+  <div className="flex flex-col items-center gap-1">
+    <span
+      className="text-3xl font-black text-shimmer"
+      style={{ fontFamily: "var(--font-display)" }}
+    >
+      {value}
+    </span>
+    <span
+      className="text-xs text-purple-400/65 uppercase tracking-widest"
+      style={{ fontFamily: "var(--font-display)" }}
+    >
+      {label}
+    </span>
+  </div>
+);
+
 const AboutSection = ({ language }: { language: Language }) => {
-  // Agrupamos por categorías para mayor claridad técnica
+  const sectionRef = useScrollReveal() as React.RefObject<HTMLElement>;
+
   const skillGroups = [
     {
-      category: language === "es" ? "Backend" : "Backend",
-      skills: [
-        "C#",
-        ".NET (ASP.NET Core)",
-        "Entity Framework Core",
-        "PostgreSQL",
-      ],
+      category: "Backend",
+      icon: "⬡",
+      skills: ["C#", ".NET Core", "Entity Framework", "PostgreSQL"],
     },
     {
-      category: language === "es" ? "Frontend" : "Frontend",
-      skills: ["React", "TypeScript (TSX)", "Tailwind CSS"],
+      category: "Frontend",
+      icon: "◈",
+      skills: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     },
     {
-      category: language === "es" ? "Herramientas & OS" : "Tools & OS",
-      skills: ["Docker", "Arch Linux", "JetBrains Suite", "Git"],
+      category: language === "es" ? "Herramientas" : "Tooling",
+      icon: "◎",
+      skills: ["Docker", "Arch Linux", "JetBrains", "Git"],
     },
   ];
 
   const copy = {
     es: {
+      eyebrow: "Desarrollador de Software",
       title: "Sobre",
       titleHighlight: "Mí",
       summary:
         "Perfil técnico orientado a construir productos robustos, rápidos y escalables.",
       aboutText:
-        "Desarrollador de Software enfocado en el ecosistema .NET y React. Tengo experiencia práctica construyendo APIs y arquitecturas limpias. Me motivan los desafíos técnicos; si hay algo que no sé hacer, lo investigo y lo aprendo. Priorizo la lógica, la eficiencia y la resolución directa de problemas. Trabajo de forma nativa en entornos Linux (Arch) utilizando herramientas profesionales y Docker.",
-      skillsTitle: "Stack Tecnológico",
-      focusTitle: "Mi enfoque",
+        "Desarrollador fullstack enfocado en el ecosistema .NET y React. Construyo APIs limpias y arquitecturas bien pensadas. Me motivan los problemas técnicos complejos — si algo no lo sé, lo investigo y lo aprendo. Trabajo nativo en Linux (Arch) con herramientas profesionales y Docker.",
+      skillsTitle: "Stack",
+      focusTitle: "Enfoque",
       focusText:
-        "Desarrollo soluciones escalables con código limpio y bien documentado. Me especializo en crear aplicaciones que solucionan problemas reales con interfaces intuitivas.",
+        "Soluciones escalables con código limpio. Aplicaciones que resuelven problemas reales con interfaces intuitivas.",
       chips: [
         "Diseño Responsive",
         "Rendimiento",
         "Arquitectura Limpia",
         "APIs REST",
       ],
+      stats: [
+        { value: "1+ año", label: "Experiencia" },
+        { value: "4", label: "Proyectos" },
+        { value: "20", label: "Edad" },
+      ],
     },
     en: {
+      eyebrow: "Software Developer",
       title: "About",
       titleHighlight: "Me",
       summary:
         "Technical profile focused on building robust, fast, and scalable products.",
       aboutText:
-        "Software Developer focused on the .NET ecosystem and React. I have hands-on experience building APIs and clean architectures. I enjoy technical challenges; when I face something new, I research it and learn it quickly. I prioritize logic, efficiency, and direct problem-solving. I work natively in Linux environments (Arch), using professional tools and Docker.",
-      skillsTitle: "Tech Stack",
-      focusTitle: "My approach",
+        "Fullstack developer focused on the .NET ecosystem and React. I build clean APIs and well-designed architectures. Complex technical problems motivate me — if I don't know something, I research and learn it quickly. I work natively in Linux (Arch) with professional tools and Docker.",
+      skillsTitle: "Stack",
+      focusTitle: "Approach",
       focusText:
-        "I build scalable solutions with clean, maintainable code. I focus on developing applications that solve real problems through intuitive interfaces.",
+        "Scalable solutions with clean code. Applications that solve real problems through intuitive interfaces.",
       chips: [
         "Responsive Design",
         "Performance",
         "Clean Architecture",
         "REST APIs",
+      ],
+      stats: [
+        { value: "2+", label: "Years" },
+        { value: "10+", label: "Projects" },
+        { value: "3", label: "Stacks" },
       ],
     },
   };
@@ -66,25 +131,45 @@ const AboutSection = ({ language }: { language: Language }) => {
   return (
     <section
       id="sobremi"
-      className="scroll-mt-28 py-24 px-4 bg-purple-900/45 relative overflow-hidden"
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      className="scroll-mt-24 py-28 px-6 relative overflow-hidden"
     >
-      <div className="absolute -top-28 -left-16 w-72 h-72 bg-purple-700/25 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-green-500/10 rounded-full blur-3xl" />
+      {/* Fondos estáticos — sin blur dinámico, sin animación */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/15 to-transparent pointer-events-none" />
+      <div className="absolute -top-32 -left-16 w-80 h-80 bg-purple-700/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-green-500/6 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-5 text-green-400 tracking-tight section-title-glow">
-          {text.title} <span className="text-white">{text.titleHighlight}</span>
-        </h2>
-        <p className="text-center text-purple-200/90 max-w-2xl mx-auto mb-14 leading-relaxed">
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Heading */}
+        <div className="text-center mb-4 reveal">
+          <p
+            className="text-xs font-semibold tracking-[0.3em] uppercase text-green-400/55 mb-4"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {text.eyebrow}
+          </p>
+          <h2
+            className="text-4xl md:text-5xl font-black tracking-tight section-title-glow inline-block"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            <span className="text-green-400">{text.title}</span>{" "}
+            <span className="text-white heading-underline">
+              {text.titleHighlight}
+            </span>
+          </h2>
+        </div>
+
+        <p className="reveal delay-100 text-center text-purple-300/65 max-w-xl mx-auto mb-16 leading-relaxed font-light">
           {text.summary}
         </p>
 
-        <div className="flex flex-col lg:flex-row items-center gap-12 relative z-10">
-          {/* Imagen de Perfil */}
-          <div className="lg:w-2/5 flex justify-center">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-purple-600 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative w-64 h-64 md:w-100 md:h-100 rounded-full overflow-hidden border-4 border-white/90 shadow-xl shadow-black/30 transform transition-transform duration-300 group-hover:scale-105">
+        <div className="flex flex-col lg:flex-row items-start gap-14 relative z-10">
+          {/* Izquierda: foto + stats */}
+          <div className="lg:w-2/5 flex flex-col items-center gap-9 reveal-left">
+            <div className="relative group profile-ring">
+              {/* Glow de hover — no anima en idle */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-purple-600/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
+              <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-2 border-white/8 shadow-2xl shadow-black/50 transition-transform duration-400 group-hover:scale-[1.03]">
                 <img
                   className="w-full h-full object-cover"
                   src="/imagenes/fotoMia-800.webp"
@@ -92,36 +177,52 @@ const AboutSection = ({ language }: { language: Language }) => {
                 />
               </div>
             </div>
+
+            {/* Stats */}
+            <div className="glass-panel rounded-2xl p-6 w-full max-w-xs">
+              <div className="flex justify-around">
+                {text.stats.map((s) => (
+                  <StatCard key={s.label} value={s.value} label={s.label} />
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Información y Skills */}
-          <div className="lg:w-3/5 text-white">
-            <div className="glass-panel rounded-2xl p-6 md:p-7 mb-8">
-              <p className="text-lg leading-relaxed text-gray-100 max-w-3xl">
+          {/* Derecha: bio + skills */}
+          <div className="lg:w-3/5 text-white space-y-5">
+            <div className="glass-panel rounded-2xl p-7 reveal-right delay-100">
+              <p className="text-base md:text-lg leading-relaxed text-purple-100/82 font-light">
                 {text.aboutText}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Sección de Skills Refactorizada */}
-              <div className="glass-panel p-6 rounded-2xl border border-white/10">
-                <h3 className="text-green-400 font-bold text-xl mb-6">
-                  {text.skillsTitle}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* Stack */}
+              <div className="glass-panel p-6 rounded-2xl reveal delay-200">
+                <h3
+                  className="font-black text-base mb-5 flex items-center gap-2"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  <span className="text-green-400">{text.skillsTitle}</span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-green-400/18 to-transparent" />
                 </h3>
-                <div className="space-y-6">
-                  {skillGroups.map((group) => (
+                <div className="space-y-4">
+                  {skillGroups.map((group, gi) => (
                     <div key={group.category}>
-                      <h4 className="text-sm font-semibold text-purple-300 uppercase tracking-wider mb-3">
+                      <h4
+                        className="text-[10px] font-bold text-purple-400/55 uppercase tracking-[0.2em] mb-2 flex items-center gap-1.5"
+                        style={{ fontFamily: "var(--font-display)" }}
+                      >
+                        <span className="text-purple-500/45">{group.icon}</span>
                         {group.category}
                       </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {group.skills.map((skill) => (
-                          <span
+                      <div className="flex flex-wrap gap-1.5">
+                        {group.skills.map((skill, si) => (
+                          <SkillTag
                             key={skill}
-                            className="px-3 py-1 bg-white/5 border border-white/10 rounded-md text-sm text-gray-200"
-                          >
-                            {skill}
-                          </span>
+                            skill={skill}
+                            index={gi * 4 + si}
+                          />
                         ))}
                       </div>
                     </div>
@@ -130,18 +231,29 @@ const AboutSection = ({ language }: { language: Language }) => {
               </div>
 
               {/* Enfoque */}
-              <div className="glass-panel p-6 rounded-2xl border border-white/10">
-                <h3 className="text-green-400 font-bold text-xl mb-4">
-                  {text.focusTitle}
+              <div className="glass-panel p-6 rounded-2xl reveal delay-300">
+                <h3
+                  className="font-black text-base mb-4 flex items-center gap-2"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  <span className="text-green-400">{text.focusTitle}</span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-green-400/18 to-transparent" />
                 </h3>
-                <p className="mb-4 text-gray-200 leading-relaxed">
+                <p className="text-purple-200/70 text-sm leading-relaxed mb-5 font-light">
                   {text.focusText}
                 </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {text.chips.map((item) => (
+                <div className="flex flex-wrap gap-2">
+                  {text.chips.map((item, i) => (
                     <span
                       key={item}
-                      className="px-3 py-1 bg-purple-800/90 text-green-300 text-sm rounded-full border border-purple-700/70"
+                      className="skill-tag-animated px-3 py-1.5 text-xs rounded-full border transition-colors duration-200 hover:border-green-400/35 hover:text-green-300/90"
+                      style={{
+                        animationDelay: `${i * 75}ms`,
+                        background: "rgb(74 222 128 / 0.05)",
+                        borderColor: "rgb(74 222 128 / 0.18)",
+                        color: "rgb(134 239 172 / 0.85)",
+                        fontFamily: "var(--font-display)",
+                      }}
                     >
                       {item}
                     </span>
