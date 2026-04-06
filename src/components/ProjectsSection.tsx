@@ -123,6 +123,17 @@ const ProjectsSection = ({ language }: { language: Language }) => {
   const staggerDelays = ["delay-100", "delay-200", "delay-300", "delay-400"];
   const proj = selectedProject !== null ? projects[selectedProject] : null;
 
+  const projectGridClass = (() => {
+    const n = projects.length;
+    if (n <= 1)
+      return "grid grid-cols-1 gap-5 max-w-xl mx-auto w-full";
+    if (n === 2)
+      return "grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto w-full";
+    if (n === 3)
+      return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5";
+    return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5";
+  })();
+
   type Variant = "primary" | "secondary" | "ghost";
   type LinkBtn = { href: string; label: string; variant: Variant };
 
@@ -190,9 +201,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
         </p>
 
         {/* Grid */}
-        <div
-          className={`grid grid-cols-1 md:grid-cols-2 gap-5 ${projects.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}
-        >
+        <div className={projectGridClass}>
           {projects.map((project, index) => (
             <div
               key={index}
