@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import ProjectCard from "./ProjectCard";
+import {
+  portfolioProjects,
+  type PortfolioProject,
+} from "../data/portfolioProjects";
 import type { Language } from "../types/language";
 
 function useScrollReveal() {
@@ -51,7 +55,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       title: "Mis",
       titleHighlight: "Proyectos",
       subtitle:
-        "Algunos de mis trabajos recientes donde he aplicado mis habilidades para resolver problemas reales.",
+        "Selección de trabajos recientes donde apliqué mis habilidades para resolver problemas reales.",
       close: "Cerrar",
       viewDemo: "Ver Demo",
       viewFrontend: "Ver Frontend",
@@ -64,7 +68,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       title: "My",
       titleHighlight: "Projects",
       subtitle:
-        "Some of my recent work where I applied my skills to solve real-world problems.",
+        "Selected recent work where I applied my skills to solve real-world problems.",
       close: "Close",
       viewDemo: "View Demo",
       viewFrontend: "View Frontend",
@@ -74,51 +78,28 @@ const ProjectsSection = ({ language }: { language: Language }) => {
     },
   };
 
-  const text = copy[language];
+  const projects = portfolioProjects;
 
-  const projects = [
-    {
-      title: { es: "Programa de automatización", en: "Automation Program" },
-      description: {
-        es: "Programa de automatización para creación de tickets con interfaz de usuario, toma de datos con formulario y envíos de WhatsApp.",
-        en: "Automation program for ticket creation with UI, form-based data capture, and WhatsApp sending.",
-      },
-      image: "/imagenes/Capturas Proyectos/imgIAutomation.png",
-      technologies: ["C#", "React", "TypeScript", "PostgreSQL"],
-      details: {
-        es: `<p>Programa de automatización para tickets con:</p><ul><li>Interfaz de usuario intuitiva</li><li>Toma de datos mediante formulario</li><li>Captura de audio para transcripción</li><li>Voz de IA para lectura de datos</li><li>Envíos automáticos por WhatsApp</li><li>Integración con PostgreSQL</li><li>Generación de reportes</li></ul>`,
-        en: `<p>Automation ticketing platform with:</p><ul><li>Intuitive user interface</li><li>Form-based data capture</li><li>Audio capture for transcription</li><li>AI voice playback for collected data</li><li>Automated WhatsApp sending</li><li>PostgreSQL integration</li><li>Report generation</li></ul>`,
-      },
-      demoUrl: "https://ia-automation-frontend.vercel.app/",
-      frontendRepoUrl: "https://github.com/Zoyeras/IAutomation_frontend",
-      backendRepoUrl: "https://github.com/Zoyeras/IAutomation_backend",
-      guideUrl: undefined,
-    },
-    {
-      title: { es: "TaskManager", en: "TaskManager" },
-      description: {
-        es: "Aplicación completa de gestión de tareas con autenticación JWT, roles de usuario y administrador, desarrollada con .NET 10 (backend) y React + TypeScript (frontend).",
-        en: "Full-stack task management app with JWT authentication, user/admin roles, built with .NET 10 (backend) and React + TypeScript (frontend).",
-      },
-      image: "/imagenes/Capturas Proyectos/imgTaskManager.png",
-      technologies: [
-        "React",
-        "TypeScript",
-        ".NET 10",
-        "Entity Framework",
-        "PostgreSQL",
-        "JWT",
-      ],
-      details: {
-        es: `<p>Sistema completo de gestión de tareas con:</p><ul><li>Autenticación JWT con expiración configurable</li><li>Roles: administrador y usuario normal</li><li>Tablero Kanban con drag & drop</li><li>Backend .NET 10 con Entity Framework Core</li><li>Base de datos PostgreSQL</li></ul>`,
-        en: `<p>Complete task management system with:</p><ul><li>JWT authentication with configurable expiration</li><li>Admin and regular user roles</li><li>Kanban board with drag & drop</li><li>.NET 10 backend with Entity Framework Core</li><li>PostgreSQL database</li></ul>`,
-      },
-      demoUrl: undefined,
-      frontendRepoUrl: "https://github.com/Zoyeras/TaskManager_frontend",
-      backendRepoUrl: "https://github.com/Zoyeras/TaskManager_backend",
-      guideUrl: undefined,
-    },
-  ];
+  const baseText = copy[language];
+  const countIntro =
+    language === "es"
+      ? projects.length === 1
+        ? "Un proyecto destacado"
+        : `${projects.length} proyectos destacados`
+      : projects.length === 1
+        ? "One featured project"
+        : `${projects.length} featured projects`;
+
+  const text =
+    projects.length <= 2
+      ? {
+          ...baseText,
+          subtitle:
+            language === "es"
+              ? `${countIntro}: automatización con captura de datos y una app fullstack de gestión de tareas.`
+              : `${countIntro}: automation with data capture and a fullstack task-management app.`,
+        }
+      : baseText;
 
   const staggerDelays = ["delay-100", "delay-200", "delay-300", "delay-400"];
   const proj = selectedProject !== null ? projects[selectedProject] : null;
@@ -137,7 +118,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
   type Variant = "primary" | "secondary" | "ghost";
   type LinkBtn = { href: string; label: string; variant: Variant };
 
-  const getLinks = (p: (typeof projects)[0]): LinkBtn[] => {
+  const getLinks = (p: PortfolioProject): LinkBtn[] => {
     const links: LinkBtn[] = [];
     if (p.demoUrl && p.demoUrl !== "#")
       links.push({ href: p.demoUrl, label: text.viewDemo, variant: "primary" });
@@ -292,6 +273,15 @@ const ProjectsSection = ({ language }: { language: Language }) => {
                 dangerouslySetInnerHTML={{ __html: proj.details[language] }}
               />
 
+              {proj.noPublicDemoNote && !proj.demoUrl && (
+                <p
+                  className="text-xs text-purple-300/55 leading-relaxed border border-purple-700/25 rounded-xl px-4 py-3 bg-purple-950/35"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {proj.noPublicDemoNote[language]}
+                </p>
+              )}
+
               <div className="h-px bg-gradient-to-r from-transparent via-purple-700/25 to-transparent" />
 
               {/* Tech */}
@@ -376,6 +366,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
       {/* Estilos del modal */}
       <style>{`
         .modal-details p { color: rgb(216 180 254 / 0.8); margin-bottom: 0.35rem; }
+        .modal-details strong { color: rgb(134 239 172 / 0.92); font-weight: 700; }
         .modal-details ul { list-style: none; padding: 0; margin-top: 0.4rem; }
         .modal-details li {
           position: relative; padding-left: 1.2rem;

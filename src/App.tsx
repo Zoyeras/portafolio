@@ -14,6 +14,10 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = language === "es" ? "es" : "en";
+  }, [language]);
+
   return (
     <div className="min-h-screen overflow-x-hidden text-white" style={{ background: "var(--bg-deep)" }}>
       <Navbar language={language} onLanguageChange={setLanguage} />
@@ -24,7 +28,7 @@ function App() {
       <footer className="py-8 px-6 border-t border-purple-900/25">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-purple-600/35 text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-display)" }}>
-            © 2025 Samuel Loaiza
+            © {new Date().getFullYear()} Samuel Loaiza
           </span>
           <div className="flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
