@@ -27,7 +27,7 @@ function App() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-purple-900/25">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-purple-600/35 text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-display)" }}>
+          <span className="text-purple-400/55 text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-display)" }}>
             © {new Date().getFullYear()} Samuel Loaiza
           </span>
           <div className="flex items-center gap-1.5">
@@ -67,8 +67,8 @@ function App() {
           className="group flex items-center justify-center w-11 h-11 rounded-full border border-purple-700/45 bg-purple-950/75 backdrop-blur-sm hover:border-green-400/45 hover:bg-purple-900/75 shadow-lg shadow-black/25 transition-all duration-250 hover:scale-105"
           aria-label={language === "es" ? "Volver arriba" : "Back to top"}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-purple-400 group-hover:text-green-400 transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-purple-300 group-hover:text-green-400 transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />
           </svg>
         </button>
       </div>

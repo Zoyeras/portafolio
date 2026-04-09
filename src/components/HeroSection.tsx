@@ -153,12 +153,12 @@ const HeroSection = ({ language }: { language: Language }) => {
           <a
             href="#sobremi"
             aria-label="Scroll"
-            className="flex flex-col items-center gap-2 text-purple-500/45 hover:text-green-400/65 transition-colors"
+            className="flex flex-col items-center gap-2 text-purple-300/70 hover:text-green-400 transition-colors"
           >
             <span className="text-[10px] tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-display)" }}>
               {t.scroll}
             </span>
-            <div className="w-px h-10 bg-gradient-to-b from-purple-500/35 to-transparent" />
+            <div className="w-px h-10 bg-gradient-to-b from-purple-400/55 to-transparent" />
           </a>
         </div>
       </div>

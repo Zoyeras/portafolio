@@ -49,7 +49,7 @@ const ProjectCard = ({
 
         {/* Badge de tecnologías */}
         <div
-          className="absolute top-3 right-3 bg-black/65 backdrop-blur-sm border border-purple-700/35 text-purple-300/75 text-[10px] px-2.5 py-1 rounded-full font-semibold"
+          className="absolute top-3 right-3 bg-black/65 backdrop-blur-sm border border-purple-500/40 text-purple-200/90 text-[10px] px-2.5 py-1 rounded-full font-semibold"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {technologies.length} tech
@@ -88,9 +88,9 @@ const ProjectCard = ({
 
         {/* Flecha */}
         <div className="flex justify-end">
-          <span className="text-purple-700/35 group-hover:text-green-400/55 transition-all duration-250 group-hover:translate-x-1">
+          <span className="text-purple-300/70 group-hover:text-green-400 transition-all duration-250 group-hover:translate-x-1">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.25} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </span>
         </div>

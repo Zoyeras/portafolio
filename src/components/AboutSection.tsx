@@ -220,7 +220,7 @@ const AboutSection = ({ language }: { language: Language }) => {
                         className="text-[10px] font-bold text-purple-400/55 uppercase tracking-[0.2em] mb-2 flex items-center gap-1.5"
                         style={{ fontFamily: "var(--font-display)" }}
                       >
-                        <span className="text-purple-500/45">{group.icon}</span>
+                        <span className="text-purple-400/80">{group.icon}</span>
                         {group.category}
                       </h4>
                       <div className="flex flex-wrap gap-1.5">

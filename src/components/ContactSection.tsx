@@ -123,14 +123,18 @@ const ContactSection = ({ language }: { language: Language }) => {
 
                   {/* Ícono */}
                   <div
-                    className="relative w-13 h-13 mb-5 rounded-xl flex items-center justify-center transition-transform duration-250 group-hover:scale-108"
+                    className="contact-icon-tile relative w-13 h-13 mb-5 rounded-xl flex items-center justify-center transition-transform duration-250 group-hover:scale-108"
                     style={{
                       width: "52px", height: "52px",
-                      background: method.accentBg,
+                      background: `linear-gradient(180deg, rgb(255 255 255 / 0.07), rgb(255 255 255 / 0.02)), ${method.accentBg}`,
                       border: `1px solid ${method.accentBorder}`,
                     }}
                   >
-                    <img src={method.icon} alt={method.label[language]} className="w-7 h-7 object-contain" />
+                    <img
+                      src={method.icon}
+                      alt={method.label[language]}
+                      className="w-7 h-7 object-contain brightness-110 contrast-110 drop-shadow-[0_1px_2px_rgb(0_0_0/0.4)]"
+                    />
                   </div>
 
                   <h3 className="text-white font-black text-base mb-1.5 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
@@ -141,9 +145,9 @@ const ContactSection = ({ language }: { language: Language }) => {
                   </p>
 
                   {/* Flecha */}
-                  <span className="mt-5 flex items-center justify-center w-7 h-7 rounded-full border border-white/5 text-purple-700/25 group-hover:border-green-400/28 group-hover:text-green-400/60 transition-all duration-250">
+                  <span className="mt-5 flex items-center justify-center w-7 h-7 rounded-full border border-white/10 text-purple-300/75 group-hover:border-green-400/45 group-hover:text-green-400 transition-all duration-250">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.25} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </span>
                 </a>
@@ -154,7 +158,7 @@ const ContactSection = ({ language }: { language: Language }) => {
 
         {/* Tagline */}
         <div className="reveal delay-500 text-center mt-14">
-          <p className="text-xs text-purple-600/40 tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)" }}>
+          <p className="text-xs text-purple-400/55 tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)" }}>
             {language === "es" ? "Hecho con código y café ☕" : "Built with code & coffee ☕"}
           </p>
         </div>
