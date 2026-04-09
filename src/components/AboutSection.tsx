@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { featuredProjectCount } from "../data/portfolioProjects";
+import { portfolioProjects } from "../data/portfolioProjects";
 import type { Language } from "../types/language";
 
 function useScrollReveal() {
@@ -98,8 +98,8 @@ const AboutSection = ({ language }: { language: Language }) => {
       stats: [
         { value: "1+ año", label: "Experiencia" },
         {
-          value: String(featuredProjectCount),
-          label: "Destacados",
+          value: String(portfolioProjects.length),
+          label: "Proyectos",
         },
         { value: "20", label: "Edad" },
       ],
@@ -125,8 +125,8 @@ const AboutSection = ({ language }: { language: Language }) => {
       stats: [
         { value: "2+", label: "Years" },
         {
-          value: String(featuredProjectCount),
-          label: "Featured",
+          value: String(portfolioProjects.length),
+          label: "Projects",
         },
         { value: "3", label: "Stacks" },
       ],

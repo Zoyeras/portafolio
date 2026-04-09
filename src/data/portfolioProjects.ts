@@ -73,5 +73,3 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
 ];
-
-export const featuredProjectCount = portfolioProjects.length;

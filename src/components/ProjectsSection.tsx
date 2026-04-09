@@ -84,11 +84,11 @@ const ProjectsSection = ({ language }: { language: Language }) => {
   const countIntro =
     language === "es"
       ? projects.length === 1
-        ? "Un proyecto destacado"
-        : `${projects.length} proyectos destacados`
+        ? "Un proyecto"
+        : `${projects.length} proyectos`
       : projects.length === 1
-        ? "One featured project"
-        : `${projects.length} featured projects`;
+        ? "One project"
+        : `${projects.length} projects`;
 
   const text =
     projects.length <= 2
