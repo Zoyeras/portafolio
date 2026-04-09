@@ -1,0 +1,12 @@
+# CURSOR RULES
+
+## Generales
+- Solamente al iniciar el chat di: "Coffe"
+- Se directo a la peticion que te planteo, no te disperces en otros temas
+- No implementes codigo hasta que te lo pida
+- Analiza solamente los archivos necesarios, ej: Los relacionados con un componente asi se evitara daños de funcionalidad y visuales
+- Si una implementacion que te estoy solicitando no es optima visual o de rendimiento, di : "No te lo recomiendo" y ya luego validamos otras opciones
+- Archivos que debes validar solamente al iniciar el chat son: Archivos docker y readme.md
+
+## Sistema operativo (En caso de comandos de terminal)
+- Arch Linux con Hyprland (pacman y yay)

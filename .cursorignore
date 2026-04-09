@@ -1,0 +1,65 @@
+# --- IDES & TOOLS (Arch / Rider / VS Code) ---
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.history/
+*.user
+*.suo
+*.sln.dotSettings.user
+
+# --- .NET / C# ---
+bin/
+obj/
+*.pdb
+*.exe
+*.dll
+appsettings.Development.json
+TestResults/
+.vs/
+
+# --- NODE / REACT / TSX ---
+node_modules/
+dist/
+build/
+.next/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# --- PHP / LARAVEL ---
+vendor/
+storage/*.log
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+bootstrap/cache/*
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+
+# --- DATABASE & ENV (PostgreSQL / Secrets) ---
+.env
+.env.*
+*.sql
+*.sqlite
+pgdata/
+data/
+docker-compose.override.yml
+
+# --- ASSETS & MEDIA ---
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.ico
+*.pdf
+*.mp4
+*.zip
+*.gz
