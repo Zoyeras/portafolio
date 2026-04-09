@@ -41,7 +41,7 @@ const SkillTag = ({ skill, index }: { skill: string; index: number }) => (
 const StatCard = ({ value, label }: { value: string; label: string }) => (
   <div className="flex flex-col items-center gap-1">
     <span
-      className="text-3xl font-black text-shimmer"
+      className="text-3xl font-bold text-shimmer"
       style={{ fontFamily: "var(--font-display)" }}
     >
       {value}
@@ -156,7 +156,7 @@ const AboutSection = ({ language }: { language: Language }) => {
             {text.eyebrow}
           </p>
           <h2
-            className="text-4xl md:text-5xl font-black tracking-tight section-title-glow inline-block"
+            className="text-4xl md:text-5xl font-bold tracking-tight section-title-glow inline-block"
             style={{ fontFamily: "var(--font-display)" }}
           >
             <span className="text-green-400">{text.title}</span>{" "}
@@ -207,7 +207,7 @@ const AboutSection = ({ language }: { language: Language }) => {
               {/* Stack */}
               <div className="glass-panel p-6 rounded-2xl reveal delay-200">
                 <h3
-                  className="font-black text-base mb-5 flex items-center gap-2"
+                  className="font-bold text-base mb-5 flex items-center gap-2"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   <span className="text-green-400">{text.skillsTitle}</span>
@@ -240,7 +240,7 @@ const AboutSection = ({ language }: { language: Language }) => {
               {/* Enfoque */}
               <div className="glass-panel p-6 rounded-2xl reveal delay-300">
                 <h3
-                  className="font-black text-base mb-4 flex items-center gap-2"
+                  className="font-bold text-base mb-4 flex items-center gap-2"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   <span className="text-green-400">{text.focusTitle}</span>

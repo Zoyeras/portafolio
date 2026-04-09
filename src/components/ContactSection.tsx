@@ -92,7 +92,7 @@ const ContactSection = ({ language }: { language: Language }) => {
           <p className="text-xs font-semibold tracking-[0.3em] uppercase text-green-400/55 mb-4" style={{ fontFamily: "var(--font-display)" }}>
             {text.eyebrow}
           </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight section-title-glow inline-block" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight section-title-glow inline-block" style={{ fontFamily: "var(--font-display)" }}>
             <span className="text-white heading-underline">{text.title}</span>
           </h2>
         </div>
@@ -137,7 +137,7 @@ const ContactSection = ({ language }: { language: Language }) => {
                     />
                   </div>
 
-                  <h3 className="text-white font-black text-base mb-1.5 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-white font-semibold text-base mb-1.5 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
                     {method.label[language]}
                   </h3>
                   <p className="text-purple-400/65 text-xs leading-relaxed group-hover:text-purple-300/85 transition-colors duration-200 font-light">

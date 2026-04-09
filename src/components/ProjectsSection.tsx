@@ -167,7 +167,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
             {text.eyebrow}
           </p>
           <h2
-            className="text-4xl md:text-5xl font-black tracking-tight section-title-glow inline-block"
+            className="text-4xl md:text-5xl font-bold tracking-tight section-title-glow inline-block"
             style={{ fontFamily: "var(--font-display)" }}
           >
             <span className="text-green-400">{text.title}</span>{" "}
@@ -235,7 +235,7 @@ const ProjectsSection = ({ language }: { language: Language }) => {
                   {language === "es" ? "Proyecto" : "Project"}
                 </p>
                 <h3
-                  className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight"
+                  className="text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {proj.title[language]}

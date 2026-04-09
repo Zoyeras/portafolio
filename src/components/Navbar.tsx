@@ -87,7 +87,7 @@ const Navbar = ({
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
         >
           <div className="w-8 h-8 rounded-lg bg-green-400/10 border border-green-400/25 flex items-center justify-center transition-all duration-200 group-hover:bg-green-400/18 group-hover:border-green-400/50">
-            <span className="text-green-400 font-black text-sm" style={{ fontFamily: "var(--font-display)" }}>Z</span>
+            <span className="text-green-400 font-bold text-sm" style={{ fontFamily: "var(--font-display)" }}>Z</span>
           </div>
           <span className="text-xl font-bold text-white tracking-tight transition-colors duration-200 group-hover:text-green-400" style={{ fontFamily: "var(--font-display)" }}>
             Zoyeras

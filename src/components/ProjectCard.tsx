@@ -59,7 +59,7 @@ const ProjectCard = ({
       {/* Contenido */}
       <div className="p-6">
         <h3
-          className="text-lg font-black text-green-400 mb-3 tracking-tight group-hover:text-green-300 transition-colors duration-200 leading-tight"
+          className="text-lg font-semibold text-green-400 mb-3 tracking-tight group-hover:text-green-300 transition-colors duration-200 leading-tight"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {title}

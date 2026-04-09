@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap");
 
 /* ─── Variables ─── */
 :root {
@@ -7,7 +6,7 @@
   --purple: #7c3aed;
   --purple-light: #a78bfa;
   --bg-deep: #05020f;
-  --font-display: "Syne", sans-serif;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-body: "DM Sans", sans-serif;
 }
 
