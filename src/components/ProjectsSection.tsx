@@ -96,8 +96,8 @@ const ProjectsSection = ({ language }: { language: Language }) => {
           ...baseText,
           subtitle:
             language === "es"
-              ? `${countIntro}: automatización con captura de datos y una app fullstack de gestión de tareas.`
-              : `${countIntro}: automation with data capture and a fullstack task-management app.`,
+              ? `${countIntro}: Fullstack de gestión de tareas.`
+              : `${countIntro}: Fullstack task-management app.`,
         }
       : baseText;
 
@@ -106,12 +106,10 @@ const ProjectsSection = ({ language }: { language: Language }) => {
 
   const projectGridClass = (() => {
     const n = projects.length;
-    if (n <= 1)
-      return "grid grid-cols-1 gap-5 max-w-xl mx-auto w-full";
+    if (n <= 1) return "grid grid-cols-1 gap-5 max-w-xl mx-auto w-full";
     if (n === 2)
       return "grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto w-full";
-    if (n === 3)
-      return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5";
+    if (n === 3) return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5";
     return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5";
   })();
 

@@ -18,28 +18,6 @@ export type PortfolioProject = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    title: { es: "Programa de automatización", en: "Automation Program" },
-    description: {
-      es: "Automatizar la creación de tickets y el seguimiento por WhatsApp reduciendo pasos manuales y errores en la captura de datos.",
-      en: "Automate ticket creation and WhatsApp follow-up to cut manual steps and data-entry mistakes.",
-    },
-    image: "/imagenes/Capturas Proyectos/imgIAutomation.png",
-    technologies: ["C#", "React", "TypeScript", "PostgreSQL"],
-    details: {
-      es: `<p><strong>Problema:</strong> procesos manuales para abrir tickets y comunicar por WhatsApp.</p>
-<p><strong>Mi rol:</strong> desarrollo fullstack — UI, integración con datos, flujos de envío y persistencia.</p>
-<p><strong>Resultado:</strong> un solo flujo con formulario, voz/transcripción opcional y reportes.</p>
-<ul><li>Interfaz clara para captura de datos</li><li>Audio para transcripción y voz de IA para lectura</li><li>Envíos automáticos por WhatsApp</li><li>PostgreSQL e informes</li></ul>`,
-      en: `<p><strong>Problem:</strong> manual steps to open tickets and notify via WhatsApp.</p>
-<p><strong>My role:</strong> fullstack development — UI, data flows, messaging integration, persistence.</p>
-<p><strong>Outcome:</strong> one guided flow with optional voice/transcription and reporting.</p>
-<ul><li>Clear UI for structured data capture</li><li>Audio for transcription and AI voice readback</li><li>Automated WhatsApp delivery</li><li>PostgreSQL and report generation</li></ul>`,
-    },
-    demoUrl: "https://ia-automation-frontend.vercel.app/",
-    frontendRepoUrl: "https://github.com/Zoyeras/IAutomation_frontend",
-    backendRepoUrl: "https://github.com/Zoyeras/IAutomation_backend",
-  },
-  {
     title: { es: "TaskManager", en: "TaskManager" },
     description: {
       es: "Gestionar tareas en equipo con roles, tablero Kanban y API segura — proyecto fullstack .NET + React.",
